@@ -1,0 +1,46 @@
+\chapter{Introduction}
+\label{chap:einleitung}
+
+%\content{Jani}
+
+\section{Motivation}\label{sec:motivation}
+
+The choice of focusing on "UNIX/Linux Honeypot" for our project work stems from its strategic importance in modern cybersecurity landscapes. UNIX systems are omnipresent and the standard in both enterprise and cloud computing environments, serving as the backbone for numerous critical services and applications. However, they are also prime targets for malicious actors seeking to exploit vulnerabilities and gain unauthorized access.
+
+By exploring the realm of UNIX/Linux honeypots, we aim to address several key motivations. Firstly, these platforms represent a significant portion of the computing infrastructure worldwide, making them a priority for security professionals and attackers alike. Understanding the specific challenges and threats faced by UNIX/Linux systems is essential for developing robust defensive strategies.
+
+Secondly, the open-source nature of UNIX/Linux distributions provides ample opportunities for customization and experimentation in honeypot deployment. This flexibility allows us to tailor our honeypot solution to match the intricacies of UNIX/Linux environments, enhancing its effectiveness in luring and monitoring attackers.
+
+Moreover, UNIX/Linux honeypots offer unique insights into the tactics, techniques, and procedures employed by adversaries targeting these platforms. By analyzing the interactions between attackers and our honeypot infrastructure, we can gain valuable intelligence to inform threat detection, incident response, and vulnerability management efforts.
+
+\section{What is a Honeypot?}\label{sec:ziele}
+
+A honeypot is a tool used in IT security, designed to detect, deflect, or counteract unauthorized access or attacks on a network by luring potential attackers into a trap.
+
+At its core, a honeypot in general is essentially a decoy system or network resource deliberately deployed to attract attackers and monitor their activities. Unlike traditional security measures that primarily focus on fortifying defenses, honeypots operate under the premise of deception, enticing attackers into revealing their tactics, techniques, and motives. By mimicking legitimate services, applications, or data, honeypots serve as bait, enticing malicious actors to interact with them.
+
+Honeypots come in various forms, ranging from low-interaction to high-interaction deployments. Low-interaction honeypots simulate only basic services and protocols, offering limited functionality to potential attackers. They are relatively easy to deploy and maintain but provide less insight into attackers behavior. On the other hand, high-interaction honeypots emulate entire systems or networks, allowing extensive interaction with attackers. While more complex to set up and manage, high-interaction honeypots yield richer data about attacker's methodologies and intentions.
+
+There are many benefits in using honeypots. Firstly, they provide intelligence about emerging threats, attack vectors, and malicious activities. By analyzing the interactions between attackers and honeypots, defenders can gain insights into new attack techniques and vulnerabilities, enabling them to fortify defenses of real systems proactively. Additionally, honeypots can serve as early warning systems, alerting organizations to potential security breaches before they escalate. Also honeypots can divert attention of an attacker away from critical assets and infrastructure, buying some time for defenders to respond.
+
+Deploying honeypots has some challenges and considerations. One major concern is the risk of inadvertently attracting legitimate users or automated scanning tools, leading to false positives and unnecessary alarms. Therefore, careful planning and segmentation are essential to ensure that honeypots do not interfere with normal operations. Furthermore, maintaining the authenticity and credibility of honeypots is crucial to deceive sophisticated attackers effectively. Regular updates, realistic configurations, and plausible data are vital to sustaining the illusion.
+
+In general, honeypots offer a proactive and dynamic approach to cybersecurity, enabling organizations to gather actionable intelligence, detect threats early, and enhance their overall security posture. By using honeypots as part of their security arsenal, organizations can stay one step ahead of adversaries.
+
+In conclusion, honeypots play a pivotal role in modern IT security by leveraging deception to thwart cyber threats effectively. Through their ability to lure, monitor, and analyze attacker's behavior, honeypots provide valuable insights into emerging threats and vulnerabilities. While challenges such as false positives and maintenance complexities exist, the benefits of honeypots in bolstering cybersecurity defenses outweigh these concerns. As organizations strive to protect their digital assets and infrastructure, integrating honeypots into their security strategies is indispensable in mitigating cyber risks and maintaining a robust security posture.
+
+\section{Scope of this Project}
+
+In this project, we focus on deploying a honeypot on a productively used server, for example a mail server. The idea is that a separate honeypot system is expensive in purchase, running costs and maintenance. Therefore using the already existing and managed server has cost benefits for the enterprise.
+
+However this does not come without challenges and compromises. For example we have to think about some general techniques and how we want to implement them, that a regular, dedicated honeypot as described does not have to deal with.
+
+Legitimate users and administrators have to be able to manage the productive part of the server and therefore have to be able to use regular Linux commands. Therefore it is necessary to decide when to trigger the honeypot behavior and also when and how do deactivate it. 
+
+Another consideration is the fact that we cannot just present the whole file system to an adversary as this contains real data that is valuable to the organization. A file system has to be simulated, using techniques such as docker or a journal. 
+
+Last but not least we could think about some criterion to lock an adversary out. The primary goal of this honeypot project is to get insight into an attackers motivation and behavior. This can be gathered for example using the first 20 or 30 commands he tries to execute on the server. During his operations, the simulated system will be more likely to be recognized and an attacker might try to break out of this dedicated, secured environment. Therefore a hard-coded limit of commands that can be executed might improve the overall security of this approach.
+
+\section{Code}
+
+All code can be found on GitHub: \url{https://github.com/00Jam00/JamJar-Projekt}

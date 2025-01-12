@@ -1,0 +1,15 @@
+\chapter{Results}
+\label{chap:results}
+\section{Conclusion}
+The main goal of this project work was to create a honeypot system for Linux/unix systems that can run on an already-in-use system such as a mailserver of IoT-device. Our solution does provide honeypot capabilities on a system while using only limited resources. Of course this project could not implement all possible unix commands so an attacker will find boundaries and become suspicious when spending enough time on the system. But the open architecture and APIs of JamJar make it easy for others to expand the capabilities by implementing new commands.
+
+\section{Evaluation}
+During the presentation the system was shown as a live demo. While a real user can still access the whole system and is not influenced or hindered by JamJar, a potentially breached user account was locked inside the simulated environment and could not easily tell the difference.
+As already discussed, currently the simulated environment does contain some abnormalities. For example all files and directories contain the same timestamp and size and all simulated processes use the same amount of CPU and memory. Randomizing these values might be an effective step to make this system more stealthy. Nevertheless JamJar works and because of the lightweight architecture, no noticeable delay between command execution and the simulated response occurs. Also the performance of the host system is not really restricted.
+
+\section{Future Work}
+As this project was only the start of JamJar, there are a lot of points and ideas for future work on the topic. For example it might be interesting to be able to replace the simulated system that is loaded into memory on program start in an easy way. We could think of some configuration file stored in JSON format that contains system parameters like the directory structure, running processes or network parameters. Outsourcing these parameters in the configuration file would make it easy to swap them and deploy JamJar on a lot of systems fast. 
+Also a separate program could be implemented to generate this configuration from another machine simply be executing it on the running system. This would allow JamJar to generate some sort of fingerprint of machines that can be used as the configuration file.
+
+Another interesting approach might be the simulation of a windows system. Although the currently used commands and technologies such as eBPF are not as easily accessible on Windows machines, there is also a need for honeypot systems in windows environments.
+
